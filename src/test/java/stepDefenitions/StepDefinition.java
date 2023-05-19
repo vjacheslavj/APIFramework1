@@ -25,7 +25,6 @@ public class StepDefinition {
     ResponseSpecification resspec;
     Response response;
 
-
     @Given("add Place Payload")
     public void add_place_payload() {
         RestAssured.baseURI = "https://rahulshettyacademy.com";
@@ -59,11 +58,13 @@ public class StepDefinition {
     public void user_calls_with_post_http_request(String string) {
         response = res.when().post("/maps/api/place/add/json")
                 .then().spec(resspec).extract().response();
+        System.out.println(string);
     }
 
     @Then("the API call got success with status code {int}")
     public void the_api_call_got_success_with_status_code(Integer int1) {
         assertEquals(response.getStatusCode(), 200);
+        System.out.println(int1);
     }
 
     @Then("{string} in response body is {string}")

@@ -1,6 +1,5 @@
 package resources;
 
-import io.restassured.RestAssured;
 import pojo.AddPlace;
 import pojo.Location;
 
@@ -28,5 +27,9 @@ public class TestDataBuild {
         l.setLng(-33.427362);
         p.setLocation(l);
         return p;
+    }
+
+    public String deletePlacePayload(String placeId) {
+        return "{\r\n    \"place_id\":\"" + placeId + "\"\r\n}";
     }
 }
